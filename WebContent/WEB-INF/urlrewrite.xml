@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlrewrite>
+	<rule>
+	<!-- 
+		/cat?id=4
+		bsong.local:8081/danh-muc/nhac-tre-4.html
+	 -->
+	 <!-- 
+	 	[Biểu thức chính quy]
+	 	^ : bắt đầu
+	 	$ :kết thúc
+	 	[a-z] :1 ký tự từ a-z viết thường
+	 	[A-Z] :1 ký tự từ a-z viết hoa
+	 	([a-z])* : đại diện 0 hoặc nhiều ký tự từ a-z thường
+	 	([A-Z])* : đại diện 0 hoặc nhiều ký tự từ A-Z hoa
+	-> 	(.*) : đại diện 0 hoặc nhiều ký tự bất kỳ
+	-> 	(.+) : đại diện 1 hoặc nhiều ký tự bất kỳ
+	 	([a-zA-Z]* || +) : đại diện các ký từ từ a-z A-Z
+	 	[0-9] : các số từ 0 - 9
+	->	([0-9]+) : các số từ 1-n
+	-> 	([0-9]*) : các số từ 0-n
+	  -->
+		<from>/category/(.+)-([0-9]+).html</from>
+		<to>/cat?id=$2</to>
+	</rule>
+	
+	<rule>
+		<from>/detail/(.+)/(.+)-([0-9]+).html</from>
+		<to>/detail?id=$3</to>
+	</rule>
+	
+	<rule>
+		<from>/edit/(.+)-([0-9]+).html</from>
+		<to>/edit?id=$2</to>
+	</rule>
+	
+</urlrewrite>
